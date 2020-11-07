@@ -83,8 +83,9 @@ body {
 
 .drag-text h3 {
   font-weight: 100;
+  font-size: 1.25rem;
   text-transform: uppercase;
-  color: #15824B;
+  color: #35465d;
   padding: 60px 0;
 }
 
@@ -193,7 +194,7 @@ body {
 
 .upload-text {
   width: 50%;
-  font-family: NanumSquareR;
+  font-family: BMJUA;
   font-size: 1.6rem;
   line-height: 1.53;
   text-align: center;
