@@ -20,7 +20,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light nav-distance">
-            <a class="navbar-brand" href="#">당신의 패션</a>
+            <a class="navbar-brand" href="#" style="font-family: BMJUA; font-size: 1.4rem;">당신의 패션</a>
             <button
                 class="navbar-toggler"
                 type="button"
@@ -33,15 +33,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" href="#"
-                        >Home <span class="sr-only">(current)</span></a
-                    >
-                    <a class="nav-link" href="#">Features</a>
-                    <a class="nav-link" href="#">Pricing</a>
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"
-                        >Disabled</a
-                    >
+                <div class="navbar-nav" style="font-family: BMJUA;">
+                    <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
                 </div>
             </div>
         </nav>
@@ -80,11 +73,8 @@
             </div>
             <div class="file-upload-content">
                 <img class="file-upload-image" id="face-image" src="#" alt="your image" />
-                <p
-                    class="result-message"
-                    style="font-family: BMJUA; font-size: 1.3rem;"
-                ></p>
-                <div id="label-container"></div>
+                <p class="result-message" style="font-family: BMJUA; font-size: 1.3rem;"></p>
+                <div id="label-container" style="font-family: BMJUA; font-size: 1rem;"></div>
                 <!-- Go to www.addthis.com/dashboard to customize your tools -->
                 <div class="addthis_inline_share_toolbox_qcxg"></div>
                 <div class="image-title-wrap">
@@ -265,7 +255,7 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
                 $('.result-message').html(resultMessage);
                 for (let i = 0; i < maxPredictions; i++) {
                     const classPrediction =
-                        prediction[i].className + ': ' + prediction[i].probability.toFixed(2);
+                        prediction[i].className + ': ' + 100*(prediction[i].probability.toFixed(2)) + '%';
                     labelContainer.childNodes[i].innerHTML = classPrediction;
                 }
             }
