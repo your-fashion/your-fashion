@@ -200,3 +200,13 @@ body {
   color: #35465d;
   margin: 0 auto;
 }
+
+.ad-banner1 {
+    width: 320px;
+    margin: auto 0;
+}
+
+.ad-banner2 {
+    width: 300px;
+    margin: auto 0;
+}
