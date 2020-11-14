@@ -1,0 +1,3 @@
+User-agent: *
+Allow:/
+Sitemap: https://your-fashion.netlify.app/sitemap.xml
