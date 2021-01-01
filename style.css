@@ -5,13 +5,22 @@
     font-style: normal;
 }
 
+.text-font {
+    font-family: BMJUA;
+    color: #35465d;
+}
+
+.text-center {
+    text-align: center;
+}
+
 body {
   font-family: sans-serif;
   background-color: #ffffff;
 }
 
 .file-upload {
-  width: 60%;
+  width: 85%;
   margin: 0 auto;
   padding: 13% 3%;
   border-radius: 10px;
@@ -100,10 +109,11 @@ body {
   width: 200px;
   margin: 0;
   color: #fff;
-  background: #35465d;
+  background: #cd4535;
   border: none;
   padding: 10px;
   border-radius: 4px;
+  border-bottom: 4px solid #b02818;
   transition: all .2s ease;
   outline: none;
   text-transform: uppercase;
@@ -111,7 +121,7 @@ body {
 }
 
 .remove-image:hover {
-  background: #35465d;
+  background: #c13b2a;
   color: #ffffff;
   transition: all .2s ease;
   cursor: pointer;
@@ -201,6 +211,15 @@ body {
   margin: 0 auto;
 }
 
+.label-container {
+  font-family: BMJUA;
+  font-size: 1rem;
+}
+
+.result-explain {
+    color: #35465d;
+}
+
 .ad-banner1 {
     width: 320px;
     margin: 0 auto;
@@ -209,4 +228,14 @@ body {
 .ad-banner2 {
     width: 300px;
     margin: 0 auto;
+}
+
+.justify-content-center {
+    font-family: BMJUA;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.footer-jocoding {
+    color: #FF0000;
 }

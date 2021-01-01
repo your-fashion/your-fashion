@@ -64,7 +64,7 @@
             class="jsbin"
             src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
         ></script>
-        <div class="file-upload mb-5">
+        <div class="file-upload">
             <div class="image-upload-wrap">
                 <input
                     class="file-upload-input"
@@ -81,8 +81,17 @@
             </div>
             <div class="file-upload-content">
                 <img class="file-upload-image" id="face-image" src="#" alt="your image" />
-                <p class="result-message" style="font-family: BMJUA; font-size: 1.3rem;"></p>
-                <div id="label-container" style="font-family: BMJUA; font-size: 1rem;"></div>
+                <div id="loading" class="animated bounce">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                   <p class="text-font text-center" style="font-size: 0.9rem;">AI가 당신의 패션센스를 분석중입니다.</p>
+                </div>
+                <div class="wait-message">
+                    <p class="text-font result-message" style="font-size: 1.3rem;"></p>
+                    <p class="text-font result-explain ml-5 mr-5" style="font-size: 1.1rem;"></p>
+                    <div id="label-container" style="font-family: BMJUA; font-size: 1rem;"></div>
+                </div>
                 <!-- Go to www.addthis.com/dashboard to customize your tools -->
                 <div class="addthis_inline_share_toolbox_qcxg"></div>
                 <div class="image-title-wrap">
@@ -92,7 +101,7 @@
                 </div>
             </div>
         </div>
-        <div id="webcam-container"></div>
+        <h4 class="text-font text-center mb-5 mt-1" style="font-size: 1rem;">*사진은 어디에도 저장되지 않습니다</h4>
         <div id="disqus_thread"></div>
         <div class="ad-banner1">
            <ins class="kakao_ad_area" style="display:none;" 
@@ -190,9 +199,12 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
 
                     reader.onload = function (e) {
                         $('.image-upload-wrap').hide();
+                        $('#loading').show();
 
                         $('.file-upload-image').attr('src', e.target.result);
+                        $('.file-upload-image').hide();
                         $('.file-upload-content').show();
+                        $('.wait-message').hide();
 
                         $('.image-title').html(input.files[0].name);
                     };
@@ -200,7 +212,9 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
                     reader.readAsDataURL(input.files[0]);
                     init().then(() => {
                         getRandomColor();
-                        predict();
+                        predict()
+                        $('#loading').hide();
+                        $('.wait-message').show();
                     });
                 } else {
                     removeUpload();
@@ -285,6 +299,9 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
                         prediction[i].className + ': ' + 100*(prediction[i].probability.toFixed(2)) + '%';
                     labelContainer.childNodes[i].innerHTML = classPrediction;
                 }
+                $('.result-message').show();
+                $('.label-container').show();
+                $('.file-upload-image').show();
             }
         </script>
         <!-- Go to www.addthis.com/dashboard to customize your tools -->
