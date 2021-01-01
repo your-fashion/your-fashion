@@ -11,7 +11,6 @@
         <meta property="og:image" content="img/fashion_favicon.ico">
         <meta property="og:url" content="https://your-fashion.netlify.app/">
         <link rel="canonical" href="https://your-fashion.netlify.app/">
-
         <!-- Bootstrap CSS -->
         <link
             rel="stylesheet"
@@ -24,11 +23,11 @@
         <link rel="stylesheet" href="style.css" />
         <link rel="shortcut icon" href="img/fashion_favicon.ico" type="image/x-icon" />
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
-        <meta name="naver-site-verification" content="ce05e4034ec10dd9e00d2398c3fc3b3464dd16c5" />
+        <meta name="naver-site-verification" content="f20e93df3b3f6b91cb4da000f42a31efb021e384" />
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light nav-distance">
-            <a class="navbar-brand" href="#" style="font-family: BMJUA; font-size: 1.4rem;">패션센스 테스트</a>
+            <a class="navbar-brand" style="font-family: BMJUA; font-size: 1.4rem;" href="#">패션센스 테스트</a>
             <button
                 class="navbar-toggler"
                 type="button"
@@ -64,7 +63,7 @@
             class="jsbin"
             src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
         ></script>
-        <div class="file-upload">
+        <div class="file-upload container mb-1">
             <div class="image-upload-wrap">
                 <input
                     class="file-upload-input"
@@ -74,8 +73,8 @@
                 />
                 <div class="drag-text">
                     <img src="img/upload.svg" class="mt-5 pt-5 upload" />
-                    <h3 class="md-5 pb-5 pt-4 upload-text">
-                        전신 사진을 올려놓거나 눌러서 업로드하세요!
+                    <h3 class="pb-5 pt-4 upload-text">
+                        얼굴 사진을 올려놓거나 눌러서 업로드하세요!
                     </h3>
                 </div>
             </div>
@@ -101,7 +100,9 @@
                 </div>
             </div>
         </div>
-        <h4 class="text-font text-center mb-5 mt-1" style="font-size: 1rem;">*사진은 어디에도 저장되지 않습니다</h4>
+        <h4 class="text-font text-center mb-5" style="font-size: 1rem;">
+            *사진은 어디에도 저장되지 않습니다
+        </h4>
         <div id="disqus_thread"></div>
         <div class="ad-banner1">
            <ins class="kakao_ad_area" style="display:none;" 
@@ -119,9 +120,9 @@
             <ins class="kakao_ad_area" style="display:none;" 
              data-ad-unit    = "DAN-w221lN5YdNVPpoDB" 
              data-ad-width   = "300" 
-             data-ad-height  = "250"></ins> 
-            <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+             data-ad-height  = "250"></ins>
         </div>
+        <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
         <script>
             /**
              *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -200,9 +201,7 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
                     reader.onload = function (e) {
                         $('.image-upload-wrap').hide();
                         $('#loading').show();
-
                         $('.file-upload-image').attr('src', e.target.result);
-                        $('.file-upload-image').hide();
                         $('.file-upload-content').show();
                         $('.wait-message').hide();
 
@@ -212,7 +211,7 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
                     reader.readAsDataURL(input.files[0]);
                     init().then(() => {
                         getRandomColor();
-                        predict()
+                        predict();
                         $('#loading').hide();
                         $('.wait-message').show();
                     });
@@ -268,12 +267,11 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
                 const prediction = await model.predict(image, false);
                 prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
                 var resultMessage;
+                var resultExplain;
+                console.log(prediction[0].className);
                 switch (prediction[0].className) {
                     case '잠옷 패션':
                         resultMessage = '잠옷 패션';
-                        break;
-                    case '운동복 패션 ':
-                        resultMessage = '운동복 패션';
                         break;
                     case '아저씨 패션 ':
                         resultMessage = '아저씨 패션';
@@ -290,6 +288,9 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
                     case '남친/여친 패션 ':
                         resultMessage = '남친/여친 패션';
                         break;
+                    case '운동복 패션':
+                        resultMessage = '운동복 패션';
+                        break;
                     default:
                         resultMessage = '알수없음';
                 }
@@ -305,10 +306,7 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
             }
         </script>
         <!-- Go to www.addthis.com/dashboard to customize your tools -->
-        <script
-            type="text/javascript"
-            src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f492c11ec42b5da"
-        ></script>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f492c11ec42b5da"></script>            
     </body>
     <!-- Copyright (c) 2020 by Aaron Vanston (https://codepen.io/aaronvanston/pen/yNYOXR)
 
